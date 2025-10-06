@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to add a task to the list
     function addTask(taskTextArg = null, save = true) {
-        // Use the provided text (for loading) or read trimmed input
+        // Use provided text (for loading) or read trimmed input
         const taskText = taskTextArg !== null ? taskTextArg : taskInput.value.trim();
 
         // Validate that user entered something
@@ -27,11 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // Create new list item (li)
         const li = document.createElement('li');
         li.textContent = taskText;
+        li.classList.add('task-item'); // ✅ added class for styling
 
         // Create "Remove" button
         const removeBtn = document.createElement('button');
         removeBtn.textContent = 'Remove';
-        removeBtn.className = 'remove-btn';
+        removeBtn.classList.add('remove-btn'); // ✅ added class for styling
 
         // Define what happens when "Remove" is clicked
         removeBtn.onclick = function () {
@@ -55,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
             saveTasks();
         }
 
-        // Clear input field and focus back
+        // Clear input field and refocus
         if (taskTextArg === null) {
             taskInput.value = '';
             taskInput.focus();
